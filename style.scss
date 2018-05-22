@@ -1,0 +1,89 @@
+$maindark: #1a1c25;
+$mainlight: invert($maindark);
+$mainblue: #40E0FF;
+html {
+    margin: 0;
+    padding: 0;
+    font-size: 62.5%;
+}
+
+body {
+    font: 1.4rem helvetica, sans-serif;
+    background-color: $mainblue;
+    color: $mainlight;
+    margin: 0;
+    padding: 0;
+}
+
+.page-wrapper {
+    padding: 0 1%;
+}
+
+::-moz-selection {
+    color: $mainblue;
+    background-color: $maindark;
+}
+
+::selection {
+    color: $mainblue;
+    background-color: $maindark;
+}
+
+.main div,
+footer,
+aside {
+    background-color: $maindark;
+    border-radius: 10px;
+    padding: 0px 10px;
+    ::-moz-selection {
+        color: $maindark;
+        background-color: $mainblue;
+    }
+    ::selection {
+        color: $maindark;
+        background-color: $mainblue;
+    }
+}
+
+.intro {
+    color: $maindark;
+    margin-top: -1rem;
+    a {
+        color: $maindark;
+    }
+}
+
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+    flex-wrap: wrap;
+}
+
+h1 {
+    font-size: 4.5rem;
+    font-variant: small-caps;
+}
+
+h2 {
+    font-size: 3.5rem;
+    font-style: italic;
+}
+
+.summary {
+    font-size: 1.8rem;
+    width: 85%;
+}
+
+a {
+    color: $mainblue;
+}
+
+a:hover,
+a:active {
+    color: invert($mainblue);
+}
+
+a:visited {
+    text-decoration-color: $maindark;
+}
