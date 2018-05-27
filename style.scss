@@ -8,15 +8,18 @@ html {
 }
 
 body {
-    font: 1.4rem helvetica, sans-serif;
+    font: 1.5rem helvetica, sans-serif;
     background-color: $mainblue;
     color: $mainlight;
     margin: 0;
-    padding: 0;
+    padding: 0 0 10px;
 }
 
 .page-wrapper {
-    padding: 0 1%;
+    max-width: 940px;
+    margin: 0 auto;
+    padding: 0 0.5em;
+    position: relative;
 }
 
 ::-moz-selection {
@@ -29,12 +32,13 @@ body {
     background-color: $maindark;
 }
 
+.intro div,
 .main div,
 footer,
 aside {
     background-color: $maindark;
-    border-radius: 10px;
-    padding: 0px 10px;
+    border-radius: 7px;
+    padding: 0 10px;
     ::-moz-selection {
         color: $maindark;
         background-color: $mainblue;
@@ -46,33 +50,63 @@ aside {
 }
 
 .intro {
-    color: $maindark;
     margin-top: -1rem;
-    a {
-        color: $maindark;
-    }
+}
+
+.intro,
+.main {
+    display: -ms-grid;
+    display: grid;
+    grid-gap: 10px;
+}
+
+.main {
+    margin: 10px 0;
 }
 
 header {
+    color: $maindark;
     display: flex;
     justify-content: space-around;
     align-items: baseline;
     flex-wrap: wrap;
 }
 
+$h1size: 3.2rem;
 h1 {
-    font-size: 4.5rem;
+    font-size: $h1size;
     font-variant: small-caps;
+    margin-bottom: 0;
 }
 
 h2 {
-    font-size: 3.5rem;
+    font-size: $h1size * 7/9 - 0.06rem;
     font-style: italic;
 }
 
 .summary {
     font-size: 1.8rem;
-    width: 85%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+aside {
+    padding: 0.1px 10px;
+    .wrapper {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        div {
+            max-width: 346px;
+        }
+    }
 }
 
 a {
@@ -86,4 +120,69 @@ a:active {
 
 a:visited {
     text-decoration-color: $maindark;
+}
+
+@media (min-width: 360px) {
+    $h1size: 3.6rem;
+    h1 {
+        font-size: $h1size;
+    }
+    h2 {
+        font-size: $h1size * 7/9;
+    }
+}
+
+@media (min-width: 400px) {
+    $h1size: 4rem;
+    h1 {
+        font-size: $h1size;
+    }
+    h2 {
+        font-size: $h1size * 7/9;
+    }
+}
+
+@media (min-width: 466px) {
+    $h1size: 4.5rem;
+    h1 {
+        font-size: $h1size;
+    }
+    h2 {
+        font-size: $h1size * 7/9;
+    }
+}
+
+@media (min-width: 756px) {
+    .intro,
+    .main {
+        -ms-grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    }
+    header,
+    footer,
+    .benefits,
+    .requirements {
+        -ms-grid-column-end: span 2;
+        grid-column-end: span 2;
+    }
+}
+
+@media (min-width: 844px) {
+    header {
+        justify-content: space-between;
+    }
+}
+
+@media (min-width: 955px + 2 * 333px + 2 * 10px) {
+    aside {
+        position: absolute;
+        top: 125px;
+        right: -333px;
+        .wrapper {
+            display: block;
+        }
+    }
+    .main {
+        margin-bottom: 0;
+    }
 }

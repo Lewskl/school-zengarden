@@ -5,15 +5,18 @@ html {
 }
 
 body {
-  font: 1.4rem helvetica, sans-serif;
+  font: 1.5rem helvetica, sans-serif;
   background-color: #40E0FF;
   color: #e5e3da;
   margin: 0;
-  padding: 0;
+  padding: 0 0 10px;
 }
 
 .page-wrapper {
-  padding: 0 1%;
+  max-width: 940px;
+  margin: 0 auto;
+  padding: 0 0.5em;
+  position: relative;
 }
 
 ::-moz-selection {
@@ -26,19 +29,22 @@ body {
   background-color: #1a1c25;
 }
 
+.intro div,
 .main div,
 footer,
 aside {
   background-color: #1a1c25;
-  border-radius: 10px;
-  padding: 0px 10px;
+  border-radius: 7px;
+  padding: 0 10px;
 }
+.intro div ::-moz-selection,
 .main div ::-moz-selection,
 footer ::-moz-selection,
 aside ::-moz-selection {
   color: #1a1c25;
   background-color: #40E0FF;
 }
+.intro div ::selection,
 .main div ::selection,
 footer ::selection,
 aside ::selection {
@@ -47,14 +53,22 @@ aside ::selection {
 }
 
 .intro {
-  color: #1a1c25;
   margin-top: -1rem;
 }
-.intro a {
-  color: #1a1c25;
+
+.intro,
+.main {
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 10px;
+}
+
+.main {
+  margin: 10px 0;
 }
 
 header {
+  color: #1a1c25;
   display: flex;
   justify-content: space-around;
   align-items: baseline;
@@ -62,18 +76,39 @@ header {
 }
 
 h1 {
-  font-size: 4.5rem;
+  font-size: 3.2rem;
   font-variant: small-caps;
+  margin-bottom: 0;
 }
 
 h2 {
-  font-size: 3.5rem;
+  font-size: 2.4288888889rem;
   font-style: italic;
 }
 
 .summary {
   font-size: 1.8rem;
-  width: 85%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+aside {
+  padding: 0.1px 10px;
+}
+aside .wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+aside .wrapper div {
+  max-width: 346px;
 }
 
 a {
@@ -87,4 +122,66 @@ a:active {
 
 a:visited {
   text-decoration-color: #1a1c25;
+}
+
+@media (min-width: 360px) {
+  h1 {
+    font-size: 3.6rem;
+  }
+
+  h2 {
+    font-size: 2.8rem;
+  }
+}
+@media (min-width: 400px) {
+  h1 {
+    font-size: 4rem;
+  }
+
+  h2 {
+    font-size: 3.1111111111rem;
+  }
+}
+@media (min-width: 466px) {
+  h1 {
+    font-size: 4.5rem;
+  }
+
+  h2 {
+    font-size: 3.5rem;
+  }
+}
+@media (min-width: 756px) {
+  .intro,
+.main {
+    -ms-grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  header,
+footer,
+.benefits,
+.requirements {
+    -ms-grid-column-end: span 2;
+    grid-column-end: span 2;
+  }
+}
+@media (min-width: 844px) {
+  header {
+    justify-content: space-between;
+  }
+}
+@media (min-width: 1641px) {
+  aside {
+    position: absolute;
+    top: 125px;
+    right: -333px;
+  }
+  aside .wrapper {
+    display: block;
+  }
+
+  .main {
+    margin-bottom: 0;
+  }
 }
